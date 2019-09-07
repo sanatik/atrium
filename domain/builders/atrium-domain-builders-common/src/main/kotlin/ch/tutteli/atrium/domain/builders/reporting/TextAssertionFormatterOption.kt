@@ -9,8 +9,8 @@ import ch.tutteli.atrium.reporting.AssertionPairFormatter
 import kotlin.reflect.KClass
 
 /**
- * Provides options to register [AssertionFormatter]s to the chosen [AssertionFormatterFacade] -- the platform
- * specific interface might provide further options.
+ * Provides maybeOptions to register [AssertionFormatter]s to the chosen [AssertionFormatterFacade] -- the platform
+ * specific interface might provide further maybeOptions.
  */
 expect interface TextAssertionFormatterOption : TextAssertionFormatterOptionCommon {
     companion object {
@@ -23,13 +23,13 @@ expect interface TextAssertionFormatterOption : TextAssertionFormatterOptionComm
 
 
 /**
- * Provides options to register [AssertionFormatter]s to the chosen [AssertionFormatterFacade] -- those options
+ * Provides maybeOptions to register [AssertionFormatter]s to the chosen [AssertionFormatterFacade] -- those maybeOptions
  * have to be provided on all platforms.
  */
 interface TextAssertionFormatterOptionCommon {
 
     /**
-     * The so far chosen options which are relevant to create [AssertionFormatter]s.
+     * The so far chosen maybeOptions which are relevant to create [AssertionFormatter]s.
      */
     val options: AssertionFormatterChosenOptions
 

@@ -6,7 +6,7 @@ import ch.tutteli.atrium.reporting.translating.LocaleOrderDecider
 import ch.tutteli.atrium.reporting.translating.TranslationSupplier
 
 /**
- * Provides options to create a [LocaleOrderDecider].
+ * Provides maybeOptions to create a [LocaleOrderDecider].
  */
 interface LocaleOrderDeciderOption {
 

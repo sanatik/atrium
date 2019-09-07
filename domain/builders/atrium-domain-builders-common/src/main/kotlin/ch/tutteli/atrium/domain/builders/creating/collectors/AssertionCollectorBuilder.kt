@@ -49,7 +49,7 @@ object AssertionCollectorBuilder : AssertionCollector {
     )
 
     /**
-     * Returns [ExplainingAssertionCollectorOption] providing options to create an assertion collector which collects
+     * Returns [ExplainingAssertionCollectorOption] providing maybeOptions to create an assertion collector which collects
      * assertions in the context of explaining assertions.
      * It inter alia delegates to the implementation of [ThrowingAssertionCollectorForExplanation] and
      * [NonThrowingAssertionCollectorForExplanation].

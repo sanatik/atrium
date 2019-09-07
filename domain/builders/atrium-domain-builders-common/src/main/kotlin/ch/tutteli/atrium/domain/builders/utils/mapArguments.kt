@@ -11,7 +11,7 @@ import kotlin.js.JsName
  * Creates a [ArgumentMapperBuilder] with the given [first] and [others] as arguments;
  * specify the mapping as such using a subsequent step in the building process.
  *
- * For instance (there are more options as second step to choose from):
+ * For instance (there are more maybeOptions as second step to choose from):
  * ```
  * fun <K, V> pairs(pair: Pair<K, V>, vararg otherPairs: Pair<K, V>) {
  *   mapArguments(pair, otherPairs).toExpect<Map.Entry<K, V>> { isKeyValue(it) }
@@ -24,7 +24,7 @@ fun <T> mapArguments(first: T, others: Array<out T>): ArgumentMapperBuilder<T> =
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <T, reified R> mapArguments(first: T, others: Array<out T>, mapper: (T) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -40,7 +40,7 @@ fun mapArguments(first: Byte, others: ByteArray): ArgumentMapperBuilder<Byte> =
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Byte, others: ByteArray, mapper: (Byte) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -56,7 +56,7 @@ fun mapArguments(first: Char, others: CharArray): ArgumentMapperBuilder<Char> =
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Char, others: CharArray, mapper: (Char) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -72,7 +72,7 @@ fun mapArguments(first: Short, others: ShortArray): ArgumentMapperBuilder<Short>
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Short, others: ShortArray, mapper: (Short) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -87,7 +87,7 @@ fun mapArguments(first: Int, others: IntArray): ArgumentMapperBuilder<Int> = map
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Int, others: IntArray, mapper: (Int) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -103,7 +103,7 @@ fun mapArguments(first: Long, others: LongArray): ArgumentMapperBuilder<Long> =
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Long, others: LongArray, mapper: (Long) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -119,7 +119,7 @@ fun mapArguments(first: Float, others: FloatArray): ArgumentMapperBuilder<Float>
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Float, others: FloatArray, mapper: (Float) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -135,7 +135,7 @@ fun mapArguments(first: Double, others: DoubleArray): ArgumentMapperBuilder<Doub
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(first: Double, others: DoubleArray, mapper: (Double) -> R): Pair<R, Array<out R>> =
     mapArguments(first, others).to(mapper)
@@ -151,7 +151,7 @@ fun mapArguments(first: Boolean, others: BooleanArray): ArgumentMapperBuilder<Bo
  * Maps the given [first] and [others] to the given type [R] with the help of the given [mapper].
  *
  * Use the overload without `mapper` in case you want to map to an [Assert][AssertionPlant] lambda with receiver
- * and use one of the available options as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
+ * and use one of the available maybeOptions as second step. For instance, `mapArguments(a, aX).toExpect<String> { ... }`
  */
 inline fun <reified R> mapArguments(
     first: Boolean,

@@ -6,7 +6,7 @@ import ch.tutteli.atrium.reporting.translating.*
 
 /**
  * Entry point to build a [Reporter]
- * -- the first step provides options to create a [Translator] or a [TranslationSupplier].
+ * -- the first step provides maybeOptions to create a [Translator] or a [TranslationSupplier].
  */
 @Deprecated(
     "use ExpectIml.reporterBuilder instead; will be removed with 1.0.0",
@@ -16,13 +16,13 @@ val reporterBuilder: ReporterBuilder = ReporterBuilderImpl
 
 
 /**
- * Provides options to create a [Translator] or [TranslationSupplier] -- the platform specific
- * interface might provide further options.
+ * Provides maybeOptions to create a [Translator] or [TranslationSupplier] -- the platform specific
+ * interface might provide further maybeOptions.
  */
 expect interface ReporterBuilder : ReporterBuilderCommon
 
 /**
- * Provides options to create a [Translator] or [TranslationSupplier] -- those options
+ * Provides maybeOptions to create a [Translator] or [TranslationSupplier] -- those maybeOptions
  * have to be provided on all platforms.
  */
 interface ReporterBuilderCommon {
@@ -32,7 +32,7 @@ interface ReporterBuilderCommon {
      * of [TranslatableWithArgs].
      *
      * [UsingDefaultTranslator] does not require a [TranslationSupplier] nor a [LocaleOrderDecider] and thus
-     * the options to specify implementations of them are skipped.
+     * the maybeOptions to specify implementations of them are skipped.
      *
      * Notice that [UsingDefaultTranslator] does not translate but uses what [Translatable.getDefault] returns.
      */
@@ -43,7 +43,7 @@ interface ReporterBuilderCommon {
      * of [TranslatableWithArgs].
      *
      * [UsingDefaultTranslator] does not require a [TranslationSupplier] nor a [LocaleOrderDecider] and thus
-     * the options to specify implementations of them are skipped.
+     * the maybeOptions to specify implementations of them are skipped.
      *
      * Notice that [UsingDefaultTranslator] does not translate but uses what [Translatable.getDefault] returns.
      *
@@ -52,7 +52,7 @@ interface ReporterBuilderCommon {
     fun withoutTranslations(primaryLocale: Locale): ObjectFormatterOption
 
     /**
-     * Uses the given [translator] as [Translator] skipping the options for [TranslationSupplier] and
+     * Uses the given [translator] as [Translator] skipping the maybeOptions for [TranslationSupplier] and
      * [LocaleOrderDecider] assuming the given [translator] is implemented differently -- use
      * [withDefaultTranslationSupplier] or [withTranslationSupplier] in case the given [translator] requires
      * a [TranslationSupplier] or a [LocaleOrderDecider].

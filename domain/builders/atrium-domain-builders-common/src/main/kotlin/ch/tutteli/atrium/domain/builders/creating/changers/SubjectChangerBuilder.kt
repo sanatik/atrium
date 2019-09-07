@@ -90,9 +90,9 @@ object SubjectChangerBuilder {
 
         /**
          * Uses the given [description] and [representation] to represent the change.
-         * Moreover, subsequent options in the building step allow to define rules when the change cannot be applied, in
+         * Moreover, subsequent maybeOptions in the building step allow to define rules when the change cannot be applied, in
          * such a case an alternative description and representation might be used (depending on the implementation and
-         * chosen options).
+         * chosen maybeOptions).
          *
          * Notice, if you want to use text (e.g. a [String]) as [representation],
          * then wrap it into a [RawString] via [RawString.create] and pass the [RawString] instead.
@@ -149,7 +149,7 @@ object SubjectChangerBuilder {
      */
     interface TransformationOption<T> {
         /**
-         * The so far chosen options up to but not inclusive the [CheckOption] step.
+         * The so far chosen maybeOptions up to but not inclusive the [CheckOption] step.
          */
         val checkOption: CheckOption<T>
 
@@ -180,7 +180,7 @@ object SubjectChangerBuilder {
      */
     interface FailureHandlerOption<T, R> {
         /**
-         * The so far chosen options up to the [CheckOption] step.
+         * The so far chosen maybeOptions up to the [CheckOption] step.
          */
         val checkOption: CheckOption<T>
 
@@ -225,14 +225,14 @@ object SubjectChangerBuilder {
 
     /**
      * Final step in the change-subject-process, creates a [ChangedSubjectPostStep]
-     * ased on the previously specified options.
+     * ased on the previously specified maybeOptions.
      *
      * @param T the type of the current subject.
      * @param R the type of the new subject.
      */
     interface FinalStep<T, R> {
         /**
-         * The so far chosen options up to the [CheckOption] step.
+         * The so far chosen maybeOptions up to the [CheckOption] step.
          */
         val checkOption: CheckOption<T>
 
@@ -254,7 +254,7 @@ object SubjectChangerBuilder {
 
         /**
          * Finishes the `reported subject change`-process by building a new [Expect] taking the previously chosen
-         * options into account.
+         * maybeOptions into account.
          *
          * @return A [ChangedSubjectPostStep] which allows to define what should happen with the new [Expect].
          */

@@ -8,7 +8,7 @@ import ch.tutteli.atrium.reporting.AtriumErrorAdjuster
 import ch.tutteli.atrium.reporting.Reporter
 
 /**
- * Provides options to create an [AtriumErrorAdjusterOption].
+ * Provides maybeOptions to create an [AtriumErrorAdjusterOption].
  */
 interface AtriumErrorAdjusterOption : AtriumErrorAdjusterCommonOption<ReporterOption> {
 
@@ -66,7 +66,7 @@ interface AtriumErrorAdjusterOption : AtriumErrorAdjusterCommonOption<ReporterOp
 annotation class MultipleAdjustersOptionMarker
 
 /**
- * Provides options to combine multiple [AtriumErrorAdjuster]s.
+ * Provides maybeOptions to combine multiple [AtriumErrorAdjuster]s.
  */
 @MultipleAdjustersOptionMarker
 interface MultipleAdjustersOption : AtriumErrorAdjusterCommonOption<Unit> {

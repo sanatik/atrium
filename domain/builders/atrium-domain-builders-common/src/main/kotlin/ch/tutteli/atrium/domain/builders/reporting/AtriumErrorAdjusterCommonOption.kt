@@ -4,7 +4,7 @@ import ch.tutteli.atrium.reporting.AtriumError
 import ch.tutteli.atrium.reporting.AtriumErrorAdjuster
 
 /**
- * Provides common options to create an [AtriumErrorAdjuster].
+ * Provides common maybeOptions to create an [AtriumErrorAdjuster].
  */
 interface AtriumErrorAdjusterCommonOption<R : Any> {
 

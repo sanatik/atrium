@@ -51,7 +51,7 @@ abstract class VerbSpec(
         val (_, assertionVerb) = forNonNullable
 
         it("does not throw an exception in case the assertion holds") {
-            assertionVerb(1).toBe(1)
+            assertionVerb(1).toBe(2)
         }
         it("throws an AssertionError as soon as one assertion fails") {
             assert {

@@ -6,7 +6,7 @@ import ch.tutteli.atrium.reporting.ObjectFormatter
 import ch.tutteli.atrium.reporting.translating.Translator
 
 /**
- * Provides options to create an [ObjectFormatter].
+ * Provides maybeOptions to create an [ObjectFormatter].
  */
 interface ObjectFormatterOption {
 

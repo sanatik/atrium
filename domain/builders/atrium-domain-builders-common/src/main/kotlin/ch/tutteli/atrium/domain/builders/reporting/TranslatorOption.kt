@@ -4,12 +4,12 @@ import ch.tutteli.atrium.core.CoreFactory
 import ch.tutteli.atrium.reporting.translating.*
 
 /**
- * Provides options to create a [Translator] -- the platform specific interface might provide further options.
+ * Provides maybeOptions to create a [Translator] -- the platform specific interface might provide further maybeOptions.
  */
 expect interface TranslatorOption : TranslatorOptionCommon
 
 /**
- * Provides options to create a [Translator] -- those options have to be provided on all platforms.
+ * Provides maybeOptions to create a [Translator] -- those maybeOptions have to be provided on all platforms.
  */
 interface TranslatorOptionCommon {
 

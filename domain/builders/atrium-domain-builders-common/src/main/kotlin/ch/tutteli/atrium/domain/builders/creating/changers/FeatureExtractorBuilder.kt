@@ -158,7 +158,7 @@ interface FeatureExtractorBuilder {
      */
     interface FeatureExtractionOption<T> {
         /**
-         * The so far chosen options up to but not inclusive the [CheckOption] step.
+         * The so far chosen maybeOptions up to but not inclusive the [CheckOption] step.
          */
         val checkOption: CheckOption<T>
 
@@ -190,7 +190,7 @@ interface FeatureExtractorBuilder {
      */
     interface RepresentationOption<T, R> {
         /**
-         * The so far chosen options up to the [CheckOption] step.
+         * The so far chosen maybeOptions up to the [CheckOption] step.
          */
         val checkOption: CheckOption<T>
 
@@ -214,7 +214,7 @@ interface FeatureExtractorBuilder {
         /**
          * Skips the option of defining a custom representation (uses the feature as such) and
          * finishes the `feature extraction`-process by building a new [Expect] taking the previously chosen
-         * options into account.
+         * maybeOptions into account.
          *
          * @return The newly created [Expect].
          */
@@ -231,14 +231,14 @@ interface FeatureExtractorBuilder {
 
     /**
      * Final step in the extract-feature-process, creates a [ExtractedFeaturePostStep]
-     * based on the previously specified options.
+     * based on the previously specified maybeOptions.
      *
      * @param T the type of the current subject.
      * @param R the type of the feature, aka the new subject.
      */
     interface FinalStep<T, R> {
         /**
-         * The so far chosen options up to the [CheckOption] step.
+         * The so far chosen maybeOptions up to the [CheckOption] step.
          */
         val checkOption: CheckOption<T>
 
@@ -261,7 +261,7 @@ interface FeatureExtractorBuilder {
 
         /**
          * Finishes the `feature extraction`-process by building a new [Expect] taking the previously chosen
-         * options into account.
+         * maybeOptions into account.
          *
          * @return An [ExtractedFeaturePostStep] which allows to define what should happen with the new [Expect].
          */

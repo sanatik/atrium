@@ -8,7 +8,7 @@ import ch.tutteli.atrium.reporting.ObjectFormatter
 import ch.tutteli.atrium.reporting.translating.Translator
 
 /**
- * Provides options to create an [AssertionFormatterFacade].
+ * Provides maybeOptions to create an [AssertionFormatterFacade].
  */
 interface AssertionFormatterFacadeOption {
 

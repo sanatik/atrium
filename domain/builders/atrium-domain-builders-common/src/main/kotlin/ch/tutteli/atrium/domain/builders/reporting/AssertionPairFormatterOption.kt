@@ -10,12 +10,12 @@ import ch.tutteli.atrium.reporting.ObjectFormatter
 import ch.tutteli.atrium.reporting.translating.Translator
 
 /**
- * Provides options to create an [AssertionPairFormatter].
+ * Provides maybeOptions to create an [AssertionPairFormatter].
  */
 interface AssertionPairFormatterOption {
 
     /**
-     * The so far chosen options which are relevant to create [AssertionFormatter]s.
+     * The so far chosen maybeOptions which are relevant to create [AssertionFormatter]s.
      */
     val options: AssertionFormatterChosenOptions
 
@@ -51,7 +51,7 @@ interface AssertionPairFormatterOption {
 }
 
 /**
- * Represents the so far chosen options which are relevant to create [AssertionFormatter]s.
+ * Represents the so far chosen maybeOptions which are relevant to create [AssertionFormatter]s.
  *
  * @param assertionFormatterFacade The previously chosen [AssertionFormatterFacade]
  * @param objectFormatter The previously chosen [ObjectFormatter]

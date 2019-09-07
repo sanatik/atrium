@@ -4,7 +4,7 @@ import ch.tutteli.atrium.core.migration.toAtriumLocale
 import ch.tutteli.atrium.reporting.translating.*
 
 /**
- * Provides options to create a [Translator] or [TranslationSupplier].
+ * Provides maybeOptions to create a [Translator] or [TranslationSupplier].
  */
 actual interface ReporterBuilder : ReporterBuilderCommon {
 
@@ -13,7 +13,7 @@ actual interface ReporterBuilder : ReporterBuilderCommon {
      * of [TranslatableWithArgs].
      *
      * [UsingDefaultTranslator] does not require a [TranslationSupplier] nor a [LocaleOrderDecider] and thus
-     * the options to specify implementations of them are skipped.
+     * the maybeOptions to specify implementations of them are skipped.
      *
      * Notice that [UsingDefaultTranslator] does not translate but uses what [Translatable.getDefault] returns.
      * Also notice, that if you omit the [primaryLocale] then [java.util.Locale.getDefault] is used.

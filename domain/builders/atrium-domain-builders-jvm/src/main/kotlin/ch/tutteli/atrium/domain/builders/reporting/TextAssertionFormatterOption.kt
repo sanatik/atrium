@@ -8,7 +8,7 @@ import ch.tutteli.atrium.reporting.AssertionFormatterFacade
 import ch.tutteli.atrium.reporting.AssertionPairFormatter
 
 /**
- * Provides options to register [AssertionFormatter]s to the chosen [AssertionFormatterFacade].
+ * Provides maybeOptions to register [AssertionFormatter]s to the chosen [AssertionFormatterFacade].
  */
 actual interface TextAssertionFormatterOption : TextAssertionFormatterOptionCommon {
 

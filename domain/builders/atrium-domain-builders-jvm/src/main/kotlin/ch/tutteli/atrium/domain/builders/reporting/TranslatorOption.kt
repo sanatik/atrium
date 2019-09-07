@@ -6,7 +6,7 @@ import ch.tutteli.atrium.reporting.translating.TranslatableWithArgs
 import ch.tutteli.atrium.reporting.translating.Translator
 
 /**
- * Provides options to create a [Translator].
+ * Provides maybeOptions to create a [Translator].
  */
 actual interface TranslatorOption : TranslatorOptionCommon {
 

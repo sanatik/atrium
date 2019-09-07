@@ -7,7 +7,7 @@ import ch.tutteli.atrium.reporting.ObjectFormatter
 import ch.tutteli.atrium.reporting.translating.Translator
 
 /**
- * Provides options to create an [AssertionFormatterController].
+ * Provides maybeOptions to create an [AssertionFormatterController].
  */
 interface AssertionFormatterControllerOption {
 

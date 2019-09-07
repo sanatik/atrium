@@ -39,7 +39,7 @@ val <T : CharSequence> Expect<T>.containsNot: NotCheckerOption<T, NotSearchBehav
  * Also notice, that it does not search for unique matches. Meaning, if the input of the search is `'a'` and [expected]
  * is defined as `'a'` and one [otherExpected] is defined as `'a'` as well, then both match, even though they match the
  * same sequence in the input of the search. Use the property `contains` to create a more sophisticated `contains`
- * assertion where you can use options such as [atLeast], [atMost] and [exactly] to control the number of occurrences
+ * assertion where you can use maybeOptions such as [atLeast], [atMost] and [exactly] to control the number of occurrences
  * you expect.
  *
  * Meaning you might want to use:

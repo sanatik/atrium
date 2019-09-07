@@ -7,7 +7,7 @@ import ch.tutteli.atrium.reporting.AtriumErrorAdjuster
 import ch.tutteli.atrium.reporting.Reporter
 
 /**
- * Provides options to finalise the building process, which means creating a [Reporter].
+ * Provides maybeOptions to finalise the building process, which means creating a [Reporter].
  */
 interface ReporterOption {
 
