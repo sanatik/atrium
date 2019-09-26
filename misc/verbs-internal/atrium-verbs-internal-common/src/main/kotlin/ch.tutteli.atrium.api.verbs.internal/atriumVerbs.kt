@@ -2,18 +2,20 @@ package ch.tutteli.atrium.api.verbs.internal
 
 import ch.tutteli.atrium.creating.Expect
 import ch.tutteli.atrium.domain.builders.ExpectImpl
+import ch.tutteli.atrium.domain.creating.throwable.thrown.ThrowableThrown
 import ch.tutteli.atrium.reporting.Reporter
 import ch.tutteli.atrium.reporting.ReporterFactory
 import ch.tutteli.atrium.reporting.reporter
 import ch.tutteli.atrium.reporting.translating.StringBasedTranslatable
 
-fun <T> expect(subject: T) =
-    ExpectImpl.assertionVerbBuilder(subject).withVerb(AssertionVerb.ASSERT).withDefaultReporter().build()
+fun <T> expect(subject: T): Expect<T> =
+    ExpectImpl.assertionVerbBuilder(subject).withVerb(AssertionVerb.ASSERT).build()
 
-fun <T> expect(subject: T, assertionCreator: Expect<T>.() -> Unit) =
+fun <T> expect(subject: T, assertionCreator: Expect<T>.() -> Unit): Expect<T> =
     expect(subject).addAssertionsCreatedBy(assertionCreator)
 
-fun expect(act: () -> Unit) = ExpectImpl.throwable.thrownBuilder(AssertionVerb.EXPECT_THROWN, act, reporter)
+fun expect(act: () -> Unit): ThrowableThrown.Builder =
+    ExpectImpl.throwable.thrownBuilder(AssertionVerb.EXPECT_THROWN, act, reporter)
 
 enum class AssertionVerb(override val value: String) : StringBasedTranslatable {
     ASSERT("assert"),
@@ -30,7 +32,7 @@ enum class AssertionVerb(override val value: String) : StringBasedTranslatable {
 
 
 class NoAdjustingReporterFactory : ReporterFactory {
-    override val id = ID
+    override val id: String = ID
 
     override fun create(): Reporter {
         return ExpectImpl.reporterBuilder
@@ -46,6 +48,6 @@ class NoAdjustingReporterFactory : ReporterFactory {
     }
 
     companion object {
-        const val ID = "default-no-adjusting"
+        const val ID: String = "default-no-adjusting"
     }
 }

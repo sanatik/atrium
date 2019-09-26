@@ -36,7 +36,7 @@ private object AtriumReporterSupplier {
 }
 
 abstract class VerbSpec(
-    forNonNullable: Pair<String, (subject: Int) -> Expect<Int>>,
+    forNonNullable: Pair<String, (subject: Int, representation: String?) -> Expect<Int>>,
     forNonNullableCreator: Pair<String, (subject: Int, assertionCreator: Expect<Int>.() -> Unit) -> Expect<Int>>,
     forNullable: Pair<String, (subject: Int?) -> Expect<Int?>>,
     forThrowable: Pair<String, (act: () -> Unit) -> ThrowableThrown.Builder>,
@@ -48,7 +48,8 @@ abstract class VerbSpec(
     }
 
     prefixedDescribe("assertion verb '${forNonNullable.first}' which immediately evaluates assertions") {
-        val (_, assertionVerb) = forNonNullable
+        val (_, assertionVerbFun) = forNonNullable
+        fun assertionVerb(subject: Int) = assertionVerbFun(subject, null)
 
         it("does not throw an exception in case the assertion holds") {
             assertionVerb(1).toBe(1)
@@ -62,6 +63,14 @@ abstract class VerbSpec(
                     contains("${DescriptionComparableAssertion.IS_LESS_OR_EQUALS.getDefault()}: 0")
                     containsNot("${DescriptionComparableAssertion.IS_GREATER_OR_EQUALS.getDefault()}: 2")
                 }
+            }
+        }
+        it("one can define an own representation for the subject") {
+            val representation = "my own representation"
+            assert {
+                assertionVerbFun(1, representation).toBe(2)
+            }.toThrow<AssertionError>{
+                messageContains(representation)
             }
         }
     }
